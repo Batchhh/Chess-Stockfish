@@ -22,7 +22,6 @@ class Main {
     /* Move time in milliseconds */
     public min: number = 1000; //1s
     public max: number = 5000; //5s
-    public moveTime: number = this.getRandomInt(this.min, this.max);
 
     public getBestMove(FEN: string, depth: number = 15): void {
 
@@ -38,7 +37,7 @@ class Main {
                 if (this.autoMove) {
                     setTimeout(() => {
                         getBoard()?.game.move(automove);
-                    }, this.moveTime);
+                    }, this.getRandomInt(this.min, this.max));
                 }
 
                 console.log(`[STOCKFISH] Calculated move: ${line.moveUCI}, Evaluation: ${line.evaluation.type} ${line.evaluation.value}`);
